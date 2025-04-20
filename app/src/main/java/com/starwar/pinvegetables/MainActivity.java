@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MyDBOpenHelper helper = new MyDBOpenHelper(this);
+
     }
 
     private void initView() {

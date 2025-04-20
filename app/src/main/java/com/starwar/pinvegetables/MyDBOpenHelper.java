@@ -10,9 +10,10 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_VEGETABLE_TABLE ="create table tourinfo (_id integer primary key autoincrement,vblename text,vbleprice real,vbleweight real,vblestatus integer)";
 
-    public MyDBOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, "vegetable.db", factory, 1);
+    public MyDBOpenHelper(@Nullable Context context) {
+        super(context, "vegetable.db", null, 1);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
