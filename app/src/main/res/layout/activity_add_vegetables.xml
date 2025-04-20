@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddVegetablesActivity">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:padding="25dp"
+            android:id="@+id/tv_add_vegetables_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始拼好菜："
+            android:textSize="55dp"
+            android:textColor="@color/middle_purple"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        预留位置，以后这里要可以点击插入蔬菜图片-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_add_vegetables_want_vegetables"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="想要拼的菜："
+            android:textSize="30dp"
+            android:textColor="@color/dark_purple"/>
+        <EditText
+            android:id="@+id/et_add_vegetables_want_vegetables"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_add_vegetables_price_vegetables"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="菜价："
+            android:textSize="30dp"
+            android:textColor="@color/dark_purple"/>
+        <EditText
+            android:id="@+id/et_add_vegetables_price_vegetables"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tv_add_vegetables_price_unit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="/人"
+            android:textSize="30dp"
+            android:textColor="@color/dark_purple"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_add_vegetables_weight_vegetables"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="菜重量"
+            android:textSize="30dp"
+            android:textColor="@color/dark_purple"/>
+
+        <EditText
+            android:id="@+id/et_add_vegetables_weight_vegetables"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_add_vegetables_weight_unit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:textColor="@color/dark_purple"
+            android:text="克"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extended_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:text="开拼！"
+        android:textSize="35dp"
+        app:icon="@drawable/baseline_arrow_forward_ios_24"
+        app:iconTint="@color/white"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
