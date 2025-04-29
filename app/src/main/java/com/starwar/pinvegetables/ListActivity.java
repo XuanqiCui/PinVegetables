@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -41,6 +42,10 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+        lv_now_vegetables.setOnItemClickListener(((parent, view, position, id) -> {
+            Intent intent = new Intent();
+            startActivity(intent);
+        }));
     }
 
     private void initView() {

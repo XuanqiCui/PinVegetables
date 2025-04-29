@@ -115,7 +115,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/extended_fab"
+        android:id="@+id/flbtn_save_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -124,6 +124,7 @@
         android:textSize="35dp"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/white"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        />
 
 </LinearLayout>

@@ -4,8 +4,8 @@ import cn.bmob.v3.BmobObject;
 
 public class Vegetables extends BmobObject {
     private String vegename;
-    private Number vegeprice;
-    private Number vegeweight;
+    private String vegeprice;
+    private String vegeweight;
     private Boolean vegestatus;
 
 
@@ -17,11 +17,11 @@ public class Vegetables extends BmobObject {
         this.vegename = vegename;
     }
 
-    public Number getVegeprice() {
+    public String getVegeprice() {
         return vegeprice;
     }
 
-    public void setVegeprice(Number vegeprice) {
+    public void setVegeprice(String vegeprice) {
         this.vegeprice = vegeprice;
     }
 
@@ -33,11 +33,11 @@ public class Vegetables extends BmobObject {
         this.vegestatus = vegestatus;
     }
 
-    public Number getVegeweight() {
+    public String getVegeweight() {
         return vegeweight;
     }
 
-    public void setVegeweight(Number vegeweight) {
+    public void setVegeweight(String vegeweight) {
         this.vegeweight = vegeweight;
     }
 }
