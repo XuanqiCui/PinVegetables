@@ -11,17 +11,17 @@ import java.util.List;
 public class NowVegetablesAdapter extends BaseAdapter {
 
     private Context context;
-    private List<VegetableListInfo> listInfos;
+    private List<Vegetables> vegelist;
 
-    public NowVegetablesAdapter(Context context, List<VegetableListInfo> listInfos){
+    public NowVegetablesAdapter(Context context, List<Vegetables> vegelist){
         this.context = context;
-        this.listInfos = listInfos;
+        this.vegelist = vegelist;
     }
 
 
     @Override
     public int getCount() {
-        return listInfos.size();
+        return vegelist.size();
     }
 
     @Override
@@ -40,8 +40,8 @@ public class NowVegetablesAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.item_my_list, null);
             TextView tv_item_status_context = convertView.findViewById(R.id.tv_item_status_context);
             TextView tv_item_title_context = convertView.findViewById(R.id.tv_item_title_context);
-            tv_item_status_context.setText(this.listInfos.get(position).getStatus());
-            tv_item_title_context.setText(this.listInfos.get(position).getName());
+            tv_item_status_context.setText(this.vegelist.get(position).getVegestatus().toString());
+            tv_item_title_context.setText(this.vegelist.get(position).getVegename());
         }
         return convertView;
     }

@@ -68,7 +68,7 @@ public class AddVegetablesActivity extends AppCompatActivity {
         et_add_vegetables_price_vegetables = (EditText) findViewById(R.id.et_add_vegetables_price_vegetables);
         et_add_vegetables_weight_vegetables = (EditText) findViewById(R.id.et_add_vegetables_weight_vegetables);
 
-        Bmob.initialize(this,"f3656b69beef4b62f81b5a781bf731fa");
+
     }
 
 

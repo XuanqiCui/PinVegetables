@@ -7,6 +7,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,13 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobQueryResult;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SQLQueryListener;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -43,21 +51,33 @@ public class ListActivity extends AppCompatActivity {
         });
 
         lv_now_vegetables.setOnItemClickListener(((parent, view, position, id) -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, ListDetailActivity.class);
             startActivity(intent);
         }));
     }
 
+
     private void initView() {
         lv_now_vegetables = findViewById(R.id.lv_now_vegetables);
         btn_pin = (FloatingActionButton) findViewById(R.id.btn_pin);
-        ArrayList<VegetableListInfo> vegetableList = new ArrayList<>();
-        vegetableList.add(new VegetableListInfo("Tomato", "Fresh"));
-        vegetableList.add(new VegetableListInfo("Potato", "Fresh"));
-        vegetableList.add(new VegetableListInfo("Carrot", "Fresh"));
+        Bmob.initialize(this,"f3656b69beef4b62f81b5a781bf731fa");
 
-        NowVegetablesAdapter adapter = new NowVegetablesAdapter(this, vegetableList);
-        lv_now_vegetables.setAdapter(adapter);
+        //查询数据并放到列表上
+        String bql = "select vegename,vegestatus from Vegetables";
+        BmobQuery<Vegetables> bmobQuery = new BmobQuery<>();
+        bmobQuery.doSQLQuery(bql, new SQLQueryListener<Vegetables>() {
+            @Override
+            public void done(BmobQueryResult<Vegetables> bmobQueryResult, BmobException e) {
+                List<Vegetables> results = bmobQueryResult.getResults();
+                if (results != null && !results.isEmpty()){
+                    NowVegetablesAdapter adapter = new NowVegetablesAdapter(ListActivity.this, results);
+                    lv_now_vegetables.setAdapter(adapter);
+                }
+                else {
+                    Toast.makeText(ListActivity.this, "查询失败", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 

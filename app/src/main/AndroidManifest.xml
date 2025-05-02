@@ -20,6 +20,9 @@
         android:theme="@style/Theme.PinVegetables"
         tools:targetApi="31">
         <activity
+            android:name=".ListDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddVegetablesActivity"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
         </activity> <!-- 添加ContentProvider信息 -->
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
-            android:authorities="com.starwar.pinvegetables.BmobContentProvider"></provider>
+            android:authorities="com.starwar.pinvegetables.BmobContentProvider" />
     </application>
 
 </manifest>
