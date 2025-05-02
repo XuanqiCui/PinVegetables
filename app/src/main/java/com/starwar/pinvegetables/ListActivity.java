@@ -60,7 +60,7 @@ public class ListActivity extends AppCompatActivity {
     private void initView() {
         lv_now_vegetables = findViewById(R.id.lv_now_vegetables);
         btn_pin = (FloatingActionButton) findViewById(R.id.btn_pin);
-        Bmob.initialize(this,"f3656b69beef4b62f81b5a781bf731fa");
+
 
         //查询数据并放到列表上
         String bql = "select vegename,vegestatus from Vegetables";
