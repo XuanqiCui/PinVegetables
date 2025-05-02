@@ -7,5 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".ListDetailActivity">
 
+    <TextView
+        android:id="@+id/tv_detail_now_vegetables"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="55dp"
+        android:text="当前正在拼："/>
+    <EditText
+        android:id="@+id/et_detail_now_vegetables"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"/>
+
+    <TextView
+        android:id="@+id/tv_detail_now_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="55dp"
+        android:text="在队列中："/>
+    <ListView
+        android:id="@+id/lv_detail_now_people"
+        android:layout_width="match_parent"
+        android:layout_height="190dp" />
+    <Button
+        android:layout_marginTop="25dp"
+        android:id="@+id/btn_detail_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我也要拼"
+        android:textColor="@color/white"/>
+
 
 </LinearLayout>

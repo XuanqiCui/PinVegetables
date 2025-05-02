@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         //创建本地缓存文件AppPrefs
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         boolean isFirstLaunch = prefs.getBoolean("first_launch", true);
-        initVew();
+        initView();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    private void initVew() {
+    private void initView() {
         Bmob.initialize(this,"f3656b69beef4b62f81b5a781bf731fa");
         iv_splash = (ImageView) findViewById(R.id.iv_splash_img);
     }

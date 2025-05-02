@@ -1,12 +1,17 @@
 package com.starwar.pinvegetables;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +36,9 @@ public class ListActivity extends AppCompatActivity {
 
     private ListView lv_now_vegetables;
     private FloatingActionButton btn_pin;
+    private LinearLayout ll_title;
+    private TextView tv_welcome;
+    private EditText et_guestname;
 
 
     @Override
@@ -50,8 +58,13 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+
         lv_now_vegetables.setOnItemClickListener(((parent, view, position, id) -> {
+            TextView tvId = view.findViewById(R.id.tv_item_title_context);
+            String item = tvId.getText().toString();
+            Log.d("点击项", "你点击的是：" + item);
             Intent intent = new Intent(this, ListDetailActivity.class);
+            intent.putExtra("vegename", item);
             startActivity(intent);
         }));
     }
@@ -60,7 +73,14 @@ public class ListActivity extends AppCompatActivity {
     private void initView() {
         lv_now_vegetables = findViewById(R.id.lv_now_vegetables);
         btn_pin = (FloatingActionButton) findViewById(R.id.btn_pin);
+        ll_title = (LinearLayout) findViewById(R.id.ll_title);
+        tv_welcome = (TextView) findViewById(R.id.tv_welcome);
+        et_guestname = (EditText) findViewById(R.id.et_guestname);
 
+        //读取本地的sharepreference中的username,并把username字段放到Editext上
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        String username = prefs.getString("username", "");
+        et_guestname.setText(username);
 
         //查询数据并放到列表上
         String bql = "select vegename,vegestatus from Vegetables";

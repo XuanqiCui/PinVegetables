@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                //拿数据，存到bmob数据库Guest表中
+                //拿到想要注册的用户名，存到bmob数据库Guest表中
                 String username = et_register_username.getText().toString();
                 Guest guest = new Guest();
                 guest.setGuestname(username);
@@ -48,6 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
                             SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
                             SharedPreferences.Editor editor = prefs.edit();
                             editor.putBoolean("first_launch", false);
+                            //保存登录信息同时在本地和云数据库
+                            editor.putString("username", username);
                             editor.apply();
 
                             //设置这侧注册状态为false，下次直接跳转到ListActivity
