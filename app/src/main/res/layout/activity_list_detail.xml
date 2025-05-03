@@ -36,6 +36,12 @@
         android:layout_height="wrap_content"
         android:text="我也要拼"
         android:textColor="@color/white"/>
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/btn_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="刷新"/>
 
 
 </LinearLayout>

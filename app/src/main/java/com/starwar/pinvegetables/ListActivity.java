@@ -39,6 +39,7 @@ public class ListActivity extends AppCompatActivity {
     private LinearLayout ll_title;
     private TextView tv_welcome;
     private EditText et_guestname;
+    private FloatingActionButton btn_list_refresh;
 
 
     @Override
@@ -57,12 +58,34 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //刷新页面
+        btn_list_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //查询数据并放到列表上
+                String bql = "select vegename,vegestatus from Vegetables";
+                BmobQuery<Vegetables> bmobQuery = new BmobQuery<>();
+                bmobQuery.doSQLQuery(bql, new SQLQueryListener<Vegetables>() {
+                    @Override
+                    public void done(BmobQueryResult<Vegetables> bmobQueryResult, BmobException e) {
+                        List<Vegetables> results = bmobQueryResult.getResults();
+                        if (results != null && !results.isEmpty()){
+                            NowVegetablesAdapter adapter = new NowVegetablesAdapter(ListActivity.this, results);
+                            lv_now_vegetables.setAdapter(adapter);
+                        }
+                        else {
+                            Toast.makeText(ListActivity.this, "查询失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
 
 
         lv_now_vegetables.setOnItemClickListener(((parent, view, position, id) -> {
             TextView tvId = view.findViewById(R.id.tv_item_title_context);
             String item = tvId.getText().toString();
-            Log.d("点击项", "你点击的是：" + item);
+//            Log.d("点击项", "你点击的是：" + item);
             Intent intent = new Intent(this, ListDetailActivity.class);
             intent.putExtra("vegename", item);
             startActivity(intent);
@@ -76,6 +99,7 @@ public class ListActivity extends AppCompatActivity {
         ll_title = (LinearLayout) findViewById(R.id.ll_title);
         tv_welcome = (TextView) findViewById(R.id.tv_welcome);
         et_guestname = (EditText) findViewById(R.id.et_guestname);
+        btn_list_refresh = (FloatingActionButton) findViewById(R.id.btn_list_refresh);
 
         //读取本地的sharepreference中的username,并把username字段放到Editext上
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
