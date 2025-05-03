@@ -30,10 +30,10 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="用心守护你的每一次支付!"
+        android:text="拼着吃更实惠！"
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
-        android:textSize="15dp"
+        android:textSize="25dp"
         android:layout_marginBottom="55dp"
         android:textColor="@android:color/white"/>
 
